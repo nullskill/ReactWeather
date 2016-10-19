@@ -2,8 +2,10 @@ import React from 'react';
 
 var About = (props) => {
 	return(
-		<h3>About</h3>
-		<p>Welcome to about page!</p>
+		<div>
+			<h3>About</h3>
+			<p>Welcome to about page!</p>
+		</div>
 	);
 };
 
