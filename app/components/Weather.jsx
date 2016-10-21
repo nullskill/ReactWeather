@@ -29,9 +29,29 @@ var Weather = React.createClass({
 		}, function (e) {
 			self.setState({
 				isLoading: false,
-				errorMessage: e.message
+				errorMessage: e.message,
+				location: undefined,
+				temp: undefined
 			});
 		});
+	},
+
+	componentDidMount() {
+		var location = this.props.location.query.location;
+
+		if (location && location.length > 0) {
+			this.handleSearch(location);
+			window.location.hash = '#/';
+		}
+	},
+
+	componentWillReceiveProps(newProps) {
+		var location = newProps.location.query.location;
+
+		if (location && location.length > 0) {
+			this.handleSearch(location);
+			window.location.hash = '#/';
+		}
 	},
 
 	render() {
